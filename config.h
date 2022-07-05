@@ -67,6 +67,7 @@ static const char *browsercmd[] = { "google-chrome", NULL };
 static const char *upvol[]      = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
 static const char *downvol[]    = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
 static const char *mutevol[]    = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
+static const char *updatevol[]  = { "/usr/bin/pkill", "-RTMIN+1", "dwmblocks", NULL };
 
 static Key keys[] = {
 	/* modifier                     key           function        argument */
@@ -79,9 +80,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                            XF86XK_AudioMute,        spawn, {.v = mutevol } },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol   } },
+	{ 0,                            XF86XK_AudioMute,        spawn, {.v = mutevol   } },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol     } },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = updatevol } },
+	{ 0,                            XF86XK_AudioMute,        spawn, {.v = updatevol } },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = updatevol } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
