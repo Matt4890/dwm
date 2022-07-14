@@ -71,6 +71,7 @@ static const char *upvol[]      = { "/usr/bin/amixer", "set", "Master", "5%+", N
 static const char *downvol[]    = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
 static const char *mutevol[]    = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
 static const char *updatevol[]  = { "/usr/bin/pkill", "-RTMIN+1", "dwmblocks", NULL };
+static const char *lockcmd[]    = { "/usr/bin/slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key           function        argument */
@@ -78,6 +79,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,         spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_Delete,    killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_l,         spawn,          {.v = lockcmd} },
 
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
