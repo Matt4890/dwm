@@ -67,6 +67,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]    = { "st", NULL };
 static const char *browsercmd[] = { "google-chrome", NULL };
+static const char *slicercmd[]  = { "superslicer", NULL };
 static const char *upvol[]      = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
 static const char *downvol[]    = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
 static const char *mutevol[]    = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
@@ -78,6 +79,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,     spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,         spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_s,         spawn,          {.v = slicercmd } },
 	{ MODKEY,                       XK_Delete,    killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_l,         spawn,          {.v = lockcmd} },
 
